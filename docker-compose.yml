@@ -2,7 +2,7 @@ version: "2"
 
 services:
   namenode:
-    image: bde2020/hadoop-namenode:1.0.0-hadoop2.7.1
+    image: leismile/hadoop-namenode:1.1.0-hadoop2.7.2-java8
     container_name: namenode-hive
     volumes:
       - ./data/namenode:/hadoop/dfs/name
@@ -11,14 +11,14 @@ services:
     env_file:
       - ./hadoop-hive.env
   datanode:
-    image: bde2020/hadoop-datanode:1.0.0-hadoop2.7.1
+    image: leismile/hadoop-datanode:1.1.0-hadoop2.7.2-java8
     container_name: datanode-hive
     volumes:
       - ./data/datanode:/hadoop/dfs/data
     env_file:
       - ./hadoop-hive.env
   hive-server:
-    image: bde2020/hive:2.1.0-postgresql-metastore
+    image: leismile/hive:1.2.1-postgresql-metastore
     container_name: hive-server
     env_file:
       - ./hadoop-hive.env
@@ -30,10 +30,14 @@ services:
     ports:
       - "10000:10000"
   hive-metastore:
-    image: bde2020/hive:2.1.0-postgresql-metastore
+    image: leismile/hive:1.2.1-postgresql-metastore
     container_name: hive-metastore
     env_file:
       - ./hadoop-hive.env
     command: /opt/hive/bin/hive --service metastore
   hive-metastore-postgresql:
-    image: bde2020/hive-metastore-postgresql:2.1.0
+    image: leismile/hive-metastore-postgresql:1.2.1
+
+
+
+
