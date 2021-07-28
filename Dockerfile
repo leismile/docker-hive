@@ -31,6 +31,7 @@ ADD conf/hive-exec-log4j.properties $HIVE_HOME/conf
 ADD conf/hive-log4j.properties $HIVE_HOME/conf
 ADD conf/ivysettings.xml $HIVE_HOME/conf
 ADD conf/hive-default.xml $HIVE_HOME/conf
+ADD conf/hive-site.xml $HIVE_HOME/conf
 
 COPY startup.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/startup.sh
